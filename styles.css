@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%; /* 15px */
+}
+
 body {
   background-color: #f0f2f5;
   font-family: "Poppins", sans-serif;
@@ -118,8 +122,10 @@ header h1#logo {
 /* Table ================================= */
 
 #data-table {
+  display: block;
   width: 100%;
   border-spacing: 0 0.5rem;
+  overflow: hidden;
 }
 
 table thead tr th:first-child,
@@ -174,4 +180,18 @@ footer {
   padding: 4rem 0 2rem;
   color: var(--dark-blue);
   opacity: 0.7;
+}
+
+/* Responsive ================================= */
+
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }
