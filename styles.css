@@ -1,145 +1,146 @@
-
 /* GLOBAL ================================= */
 
 :root {
-    --dark-blue: #363f5f;
+  --dark-blue: #363f5f;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: #f0f2f5;
-    font-family: 'Poppins', sans-serif;
+  background-color: #f0f2f5;
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
-    width: min(90vw, 800px);
-    margin: auto;
+  width: min(90vw, 800px);
+  margin: auto;
 }
 
 /* TITLES ================================= */
 
 h2 {
-    margin-top: 3.2rem;
-    margin-bottom: 0.8rem;
-    color: var(--dark-blue);
-    font-weight: normal;
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-blue);
+  font-weight: normal;
 }
 
 /* HEADER ================================= */
 
 header {
-    background-color: #2d4a22;
-    padding: 2rem 0 10rem;
-    text-align: center;
+  background-color: #2d4a22;
+  padding: 2rem 0 10rem;
+  text-align: center;
 }
 
 header h1#logo {
-    color: #fff;
-    font-weight: 100;
+  color: #fff;
+  font-weight: 100;
 }
 
 /* Balance ================================= */
 
 #balance {
-    margin-top: -8rem;
+  margin-top: -8rem;
 }
 
 #balance h2 {
-    color: #fff;
-    margin-top: 0;
+  color: #fff;
+  margin-top: 0;
 }
 
 /* Cards ================================= */
 
 .card {
-    background: rgba( 255, 255, 255, 0.7 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    padding: 1.5rem 2rem;
-    border-radius: .5rem;
-    margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .card h3 {
-    font-weight: normal;
-    font-size: 1rem;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 .card p {
-    font-size: 2rem;
-    line-height: 3rem;
-    margin-top: 1rem;
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
 }
 
 .card.total {
-    background: rgba( 73, 170, 38, 0.7 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    color: #fff;
+  background: rgba(73, 170, 38, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
 }
 
 /* Table ================================= */
 
 #data-table {
-    width: 100%;
-    border-spacing: 0 0.5rem;
+  width: 100%;
+  border-spacing: 0 0.5rem;
 }
 
-table thead tr th:first-child, table tbody tr td:first-child {
-    border-radius: .5rem 0 0 0.5rem;
+table thead tr th:first-child,
+table tbody tr td:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
 }
 
-table thead tr th:last-child, table tbody tr td:last-child {
-    border-radius: 0 0.5rem 0.5rem 0;
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.5rem 0.5rem 0;
 }
 
 table thead th {
-    background-color: white;
-    opacity: 70%;
-    color: var(--dark-blue);
-    font-weight: normal;
-    padding: 1rem 2rem;
-    text-align: left;
+  background-color: white;
+  opacity: 70%;
+  color: var(--dark-blue);
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
 }
 
 table tbody td {
-    background: white;
-    opacity: 70%;
-    padding: 1rem 2rem;
+  background: white;
+  opacity: 70%;
+  padding: 1rem 2rem;
 }
 
 table tbody tr {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 table tbody tr:hover {
-    opacity: 100%;
+  opacity: 100%;
 }
 
 td.description {
-    color: var(--dark-blue)
+  color: var(--dark-blue);
 }
 
 td.income {
-    color: #12a453;
+  color: #12a453;
 }
 
 td.expense {
-    color: #e92929;
+  color: #e92929;
 }
 
 /* Footer ================================= */
 
 footer {
-    text-align: center;
-    padding: 4rem 0 2rem;
-    color: var(--dark-blue);
-    opacity: .7;
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--dark-blue);
+  opacity: 0.7;
 }
