@@ -92,12 +92,54 @@ header h1#logo {
     border-spacing: 0 0.5rem;
 }
 
-table td {
+table thead tr th:first-child, table tbody tr td:first-child {
+    border-radius: .5rem 0 0 0.5rem;
+}
+
+table thead tr th:last-child, table tbody tr td:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+table thead th {
+    background-color: white;
+    opacity: 70%;
+    color: var(--dark-blue);
+    font-weight: normal;
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+table tbody td {
     background: white;
+    opacity: 70%;
+    padding: 1rem 2rem;
+}
+
+table tbody tr {
+    opacity: 70%;
+}
+
+table tbody tr:hover {
+    opacity: 100%;
+}
+
+td.description {
+    color: var(--dark-blue)
+}
+
+td.income {
+    color: #12a453;
+}
+
+td.expense {
+    color: #e92929;
 }
 
 /* Footer ================================= */
 
 footer {
     text-align: center;
+    padding: 4rem 0 2rem;
+    color: var(--dark-blue);
+    opacity: .7;
 }
