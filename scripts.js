@@ -6,5 +6,5 @@ Modal = {
     close(){
         // Fechar modal
         // Remover classe active do modal
-    }
+    },
 }
