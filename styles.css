@@ -11,7 +11,7 @@
 }
 
 html {
-    font-size: 93.75%; /* 15px */
+  font-size: 93.75%; /* 15px */
 }
 
 body {
@@ -20,15 +20,15 @@ body {
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .container {
@@ -48,17 +48,17 @@ h2 {
 /* LINKS & BUTTONS ================================= */
 
 a {
-    color: #49aa26;
-    text-decoration: none;
+  color: #49aa26;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #3dd705;
+  color: #3dd705;
 }
 
 .button.new {
-    display: inline-block;
-    margin-bottom: .8rem;
+  display: inline-block;
+  margin-bottom: 0.8rem;
 }
 
 /* HEADER ================================= */
@@ -121,11 +121,14 @@ header h1#logo {
 
 /* Table ================================= */
 
-#data-table {
+#transaction {
   display: block;
+  overflow-x: auto;
+}
+
+#data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
-  overflow: hidden;
 }
 
 table thead tr th:first-child,
@@ -173,6 +176,10 @@ td.expense {
   color: #e92929;
 }
 
+/* Modal ================================= */
+
+
+
 /* Footer ================================= */
 
 footer {
@@ -185,13 +192,13 @@ footer {
 /* Responsive ================================= */
 
 @media (min-width: 800px) {
-    html {
-        font-size: 87.5%;
-    }
+  html {
+    font-size: 87.5%;
+  }
 
-    #balance {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
+  #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }
