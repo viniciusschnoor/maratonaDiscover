@@ -101,9 +101,9 @@ const DOM = {
     },
 
     updateBalance() {
-        document.getElementById('incomeDisplay').innerHTML = formatCurrency(Transaction.incomes())
-        document.getElementById('expenseDisplay').innerHTML = formatCurrency(Transaction.expenses())
-        document.getElementById('totalDisplay').innerHTML = formatCurrency(Transaction.total())
+        document.getElementById('incomeDisplay').innerHTML = Utils.formatCurrency(Transaction.incomes())
+        document.getElementById('expenseDisplay').innerHTML = Utils.formatCurrency(Transaction.expenses())
+        document.getElementById('totalDisplay').innerHTML = Utils.formatCurrency(Transaction.total())
     }
 }
 
