@@ -44,10 +44,13 @@ const transactions = [
 ]
 
 const Transaction = {
+    
+    all: transactions,
+
     incomes() {
         let income = 0;
         // Pegar todas as transações
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             // para cada transação se ela for maior que zero
             if( transaction.amount > 0 ) {
                 // Somar a uma variável e retornar como variável
@@ -56,10 +59,11 @@ const Transaction = {
         })
         return income;
     },
+
     expenses() {
         let expense = 0;
         // Pegar todas as transações
-        transactions.forEach((transaction) => {
+        Transaction.all.forEach((transaction) => {
             // para cada transação se ela for menor que zero
             if( transaction.amount < 0 ) {
                 // Somar a uma variável e retornar como variável
@@ -68,10 +72,12 @@ const Transaction = {
         })
         return expense;
     },
+
     total() {
         // Entradas - Saídas
         return Transaction.incomes() + Transaction.expenses();
     },
+
 }
 
 // Pegar dados do JS e colocar no HTML
