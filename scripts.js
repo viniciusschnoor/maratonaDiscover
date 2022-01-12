@@ -90,7 +90,7 @@ const Transaction = {
 const DOM = {
     transactionsContainer: document.querySelector('#data-table tbody'),
     
-    addTransaction(transaction, index) {
+    addTransaction(transaction) {
         const tr = document.createElement('tr')
         tr.innerHTML = DOM.innerHTMLTransaction(transaction)
         
@@ -186,15 +186,19 @@ const Form = {
         }
     },
 
+    saveTransaction(transaction) {
+            Transaction.add(transaction)
+    },
+
     submit(event) {
         event.preventDefault();
 
 
         try {
-            // Form.validadeFields();
-            Form.formatValues();
-            // salvar
-            // apagar dados do formulari
+            Form.validadeFields();
+            const transaction = Form.formatValues();
+            Form.saveTransaction()
+            // apagar dados do formulario
             // fechar modal
             // atualizar
         } catch (error) {
@@ -223,5 +227,3 @@ const App = {
 }
 
 App.init()
-
-Transaction.remove(0)
