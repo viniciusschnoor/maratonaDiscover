@@ -135,5 +135,3 @@ transactions.forEach( function(transaction) {
 } )
 
 DOM.updateBalance()
-
-// 01:16:00
