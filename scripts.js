@@ -198,7 +198,7 @@ const Form = {
     try {
       Form.validadeFields();
       const transaction = Form.formatValues();
-      Form.saveTransaction();
+      Form.saveTransaction(transaction);
       // apagar dados do formulario
       // fechar modal
       // atualizar
