@@ -84,8 +84,6 @@ const Transaction = {
   },
 };
 
-// Pegar dados do JS e colocar no HTML
-
 const DOM = {
   transactionsContainer: document.querySelector("#data-table tbody"),
 
