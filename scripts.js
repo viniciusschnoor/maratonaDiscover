@@ -1,21 +1,16 @@
 const Modal = {
   open() {
-    // // Abrir modal
-    // const modalOverlay = document.querySelector('.modal-overlay')
-    // // console.log(modalOverlay) --> Apenas para consultar div
-    // // Adicionar classe active ao modal
-    // modalOverlay.classList.add('active')
-    document.querySelector(".modal-overlay").classList.add("active");
+    document
+    .querySelector(".modal-overlay")
+    .classList.add("active");
   },
 
   close() {
-    // // Fechar modal
-    // const modalOverlay = document.querySelector('.modal-overlay')
-    // // Remover classe active do modal
-    // modalOverlay.classList.remove('active')
-    document.querySelector(".modal-overlay").classList.remove("active");
-  },
-};
+    document
+    .querySelector(".modal-overlay")
+    .classList.remove("active");
+  }
+}
 
 const Storage = {
   get() {
@@ -24,52 +19,27 @@ const Storage = {
 
   set(transactions) {
     localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
-  },
-};
+  }
+}
 
 const Transaction = {
   all: Storage.get(),
-  // [
-  //   {
-  //     description: "Luz",
-  //     amount: -50000,
-  //     date: "23/01/2021",
-  //   },
-  //   {
-  //     description: "Criação de Website",
-  //     amount: 500000,
-  //     date: "23/01/2021",
-  //   },
-  //   {
-  //     description: "Internet",
-  //     amount: -20000,
-  //     date: "23/01/2021",
-  //   },
-  //   {
-  //     description: "App",
-  //     amount: 200000,
-  //     date: "23/01/2021",
-  //   },
-  // ],
 
   add(transaction) {
-    Transaction.all.push(transaction);
-    App.reload();
+    Transaction.all.push(transaction)
+    App.reload()
   },
 
   remove(index) {
-    Transaction.all.splice(index, 1);
+    Transaction.all.splice(index, 1)
 
-    App.reload();
+    App.reload()
   },
 
   incomes() {
     let income = 0;
-    // Pegar todas as transações
     Transaction.all.forEach((transaction) => {
-      // para cada transação se ela for maior que zero
       if (transaction.amount > 0) {
-        // Somar a uma variável e retornar como variável
         income += transaction.amount;
       }
     });
@@ -78,11 +48,8 @@ const Transaction = {
 
   expenses() {
     let expense = 0;
-    // Pegar todas as transações
     Transaction.all.forEach((transaction) => {
-      // para cada transação se ela for menor que zero
       if (transaction.amount < 0) {
-        // Somar a uma variável e retornar como variável
         expense += transaction.amount;
       }
     });
@@ -90,20 +57,19 @@ const Transaction = {
   },
 
   total() {
-    // Entradas - Saídas
-    return Transaction.incomes() + Transaction.expenses();
-  },
-};
+    return Transaction.incomes() + Transaction.expenses()
+  }
+}
 
 const DOM = {
   transactionsContainer: document.querySelector("#data-table tbody"),
 
   addTransaction(transaction, index) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
-    tr.dataset.index = index;
+    const tr = document.createElement("tr")
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index)
+    tr.dataset.index = index
 
-    DOM.transactionsContainer.appendChild(tr);
+    DOM.transactionsContainer.appendChild(tr)
   },
 
   innerHTMLTransaction(transaction, index) {
@@ -121,21 +87,15 @@ const DOM = {
   },
 
   updateBalance() {
-    document.getElementById("incomeDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.incomes()
-    );
-    document.getElementById("expenseDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.expenses()
-    );
-    document.getElementById("totalDisplay").innerHTML = Utils.formatCurrency(
-      Transaction.total()
-    );
+    document.getElementById("incomeDisplay").innerHTML = Utils.formatCurrency(Transaction.incomes());
+    document.getElementById("expenseDisplay").innerHTML = Utils.formatCurrency(Transaction.expenses());
+    document.getElementById("totalDisplay").innerHTML = Utils.formatCurrency(Transaction.total());
   },
 
   clearTransactions() {
     DOM.transactionsContainer.innerHTML = "";
   },
-};
+}
 
 const Utils = {
   formatAmount(value) {
@@ -162,7 +122,7 @@ const Utils = {
 
     return signal + value;
   },
-};
+}
 
 const Form = {
   description: document.querySelector("input#description"),
@@ -220,26 +180,23 @@ const Form = {
       alert(error.message);
     }
   },
-};
+}
 
-Storage.set('Aloooou')
 Storage.get()
 
 const App = {
   init() {
-    Transaction.all.forEach(function(transaction, index) {
-      DOM.addTransaction(transaction, index);
-    });
+    Transaction.all.forEach(DOM.addTransaction)
 
-    DOM.updateBalance();
+    DOM.updateBalance()
 
-    Storage.set(Transaction.all);
+    Storage.set(Transaction.all)
   },
 
   reload() {
-    DOM.clearTransactions();
-    App.init();
+    DOM.clearTransactions()
+    App.init()
   },
-};
+}
 
-App.init();
+App.init()
