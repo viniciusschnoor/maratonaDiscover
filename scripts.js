@@ -19,26 +19,26 @@ const Modal = {
 
 const Transaction = {
   all: [
-    {
-      description: "Luz",
-      amount: -50000,
-      date: "23/01/2021",
-    },
-    {
-      description: "Criação de Website",
-      amount: 500000,
-      date: "23/01/2021",
-    },
-    {
-      description: "Internet",
-      amount: -20000,
-      date: "23/01/2021",
-    },
-    {
-      description: "App",
-      amount: 200000,
-      date: "23/01/2021",
-    },
+    // {
+    //   description: "Luz",
+    //   amount: -50000,
+    //   date: "23/01/2021",
+    // },
+    // {
+    //   description: "Criação de Website",
+    //   amount: 500000,
+    //   date: "23/01/2021",
+    // },
+    // {
+    //   description: "Internet",
+    //   amount: -20000,
+    //   date: "23/01/2021",
+    // },
+    // {
+    //   description: "App",
+    //   amount: 200000,
+    //   date: "23/01/2021",
+    // },
   ],
 
   add(transaction) {
@@ -89,14 +89,15 @@ const Transaction = {
 const DOM = {
   transactionsContainer: document.querySelector("#data-table tbody"),
 
-  addTransaction(transaction) {
+  addTransaction(transaction, index) {
     const tr = document.createElement("tr");
     tr.innerHTML = DOM.innerHTMLTransaction(transaction);
+    tr.dataset.index = index;
 
     DOM.transactionsContainer.appendChild(tr);
   },
 
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CSSClass = transaction.amount >= 0 ? "income" : "expense";
     const amount = Utils.formatCurrency(transaction.amount);
     const html = `
@@ -104,7 +105,7 @@ const DOM = {
             <td class="${CSSClass}">${amount}</td>
             <td class="date">${transaction.date}</td>
             <td>
-                <img src="./assets/minus.svg" alt="Remover Transação" />
+                <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover Transação" />
             </td>
         `;
     return html;
@@ -192,16 +193,20 @@ const Form = {
     Transaction.add(transaction);
   },
 
+  clearFields() {
+    Form.description.value = "";
+    Form.amount.value = "";
+    Form.date.value = "";
+  },
+
   submit(event) {
     event.preventDefault();
 
     try {
-      Form.validadeFields();
       const transaction = Form.formatValues();
       Form.saveTransaction(transaction);
-      // apagar dados do formulario
-      // fechar modal
-      // atualizar
+      Form.clearFields();
+      Modal.close();
     } catch (error) {
       alert(error.message);
     }
@@ -210,8 +215,8 @@ const Form = {
 
 const App = {
   init() {
-    Transaction.all.forEach((transaction) => {
-      DOM.addTransaction(transaction);
+    Transaction.all.forEach(function(transaction, index) {
+      DOM.addTransaction(transaction, index);
     });
 
     DOM.updateBalance();
